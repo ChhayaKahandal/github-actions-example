@@ -1,4 +1,7 @@
-FROM ubuntu:latest
-LABEL authors="user"
+FROM eclipse-temurin:21-jdk
 
-ENTRYPOINT ["top", "-b"]
+ADD target/springboot-image-githubactions.jar springboot-image-githubactions.jar
+
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-jar", "springboot-image-githubactions.jar"]
